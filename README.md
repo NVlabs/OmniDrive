@@ -11,6 +11,33 @@ We present OmniDrive, a holistic Drive LLM-Agent framework for end-to-end autono
 - `[2024/05/02]` OmniDrive-nuScenes dataset release. [[Download](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/omnidrive_data.zip)]
 - `[2024/05/02]` [ArXiv](https://arxiv.org/abs/2405.01533) technical report release.
 
+## Visual Results
+
+Joint End-to-end Planning and Reasoning
+
+<div align="center">
+<img src="https://github.com/NVlabs/OmniDrive/releases/download/v1.0/demo1.gif" width="1000">
+
+<img src="https://github.com/NVlabs/OmniDrive/releases/download/v1.0/demo2.gif" width="1000">
+</div>
+<br><br>
+
+Interactive Conversation with Ego Vehicle
+
+<div align="center">
+<img src="https://github.com/NVlabs/OmniDrive/releases/download/v1.0/demo3.gif" width="1000">
+</div>
+<br><br>
+
+Counterfactual Reasoning of Planning Behaviors
+
+<div align="center">
+<img src="https://github.com/NVlabs/OmniDrive/releases/download/v1.0/demo4.png" width="1000">
+
+<img src="https://github.com/NVlabs/OmniDrive/releases/download/v1.0/demo5.png" width="1000">
+</div>
+<br><br>
+
 ## Citation
 If this work is helpful for your research, please consider citing:
 
