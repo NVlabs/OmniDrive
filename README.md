@@ -7,6 +7,10 @@ https://github.com/NVlabs/OmniDrive/assets/74858581/f64987a0-b890-416d-90c1-e0da
 
 We present OmniDrive, a holistic Drive LLM-Agent framework for end-to-end autonomous driving. Our main contributions involve novel solutions in both model (OmniDrive-Agent) and benchmark (OmniDrive-nuScenes). The former features a novel 3D multimodal LLM design that uses sparse queries to lift and compress visual representations into 3D. The latter is constituted of comprehensive VQA tasks for reasoning and planning, including scene description, traffic regulation, 3D grounding, counterfactual reasoning, decision making and planning.
 
+<div align="center">
+<img src="https://github.com/NVlabs/OmniDrive/releases/download/v1.0/teaser.png" width="1000">
+</div>
+
 ## News
 - `[2024/05/02]` OmniDrive-nuScenes dataset release. [[Download](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/omnidrive_data.zip)]
 - `[2024/05/02]` [ArXiv](https://arxiv.org/abs/2405.01533) technical report release.
@@ -20,14 +24,14 @@ Joint End-to-end Planning and Reasoning
 
 <img src="https://github.com/NVlabs/OmniDrive/releases/download/v1.0/demo2.gif" width="1000">
 </div>
-<br><br>
+<br>
 
 Interactive Conversation with Ego Vehicle
 
 <div align="center">
 <img src="https://github.com/NVlabs/OmniDrive/releases/download/v1.0/demo3.gif" width="1000">
 </div>
-<br><br>
+<br>
 
 Counterfactual Reasoning of Planning Behaviors
 
@@ -36,7 +40,6 @@ Counterfactual Reasoning of Planning Behaviors
 
 <img src="https://github.com/NVlabs/OmniDrive/releases/download/v1.0/demo5.png" width="1000">
 </div>
-<br><br>
 
 ## Citation
 If this work is helpful for your research, please consider citing:
