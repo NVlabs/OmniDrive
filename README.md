@@ -12,8 +12,25 @@ We present OmniDrive, a holistic Drive LLM-Agent framework for end-to-end autono
 </div>
 
 ## News
-- `[2024/05/02]` OmniDrive-nuScenes dataset release. [[Download](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/omnidrive_data.zip)]
+- `[2024/07/18]` OmniDrive-nuScenes model release.
+- `[2024/05/02]` OmniDrive-nuScenes dataset release.
 - `[2024/05/02]` [ArXiv](https://arxiv.org/abs/2405.01533) technical report release.
+
+## Getting Started
+
+Please follow our documentation step by step. If you like our work, please recommend it to your colleagues and friends.
+
+1. [**Environment Setup.**](./docs/setup.md)
+
+## Currently Supported Features
+- [x] OmnDrive Training Framework
+- [x] OmnDrive Dataset
+- [ ] OmnDrive Checkpoint
+- [ ] Evaluation (2024/07/22)
+- [ ] Data Generation (2024/07/22)
+- [ ] TensorRT Inference
+- [ ] DeepSpeed
+- [ ] Tiny LLM
 
 ## Visual Results
 
