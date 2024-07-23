@@ -26,7 +26,7 @@ Please follow our documentation step by step. If you like our work, please recom
 - [x] OmnDrive Training Framework
 - [x] OmnDrive Dataset
 - [ ] OmnDrive Checkpoint
-- [ ] Evaluation (2024/07/22)
+- [x] Evaluation
 - [ ] Data Generation (2024/07/22)
 - [ ] TensorRT Inference
 - [ ] DeepSpeed
