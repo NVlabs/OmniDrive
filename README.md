@@ -27,7 +27,7 @@ Please follow our documentation step by step. If you like our work, please recom
 - [x] OmnDrive Dataset
 - [ ] OmnDrive Checkpoint
 - [x] Evaluation
-- [ ] Data Generation (2024/07/22)
+- [x] Data Generation
 - [ ] TensorRT Inference
 - [ ] DeepSpeed
 - [ ] Tiny LLM
