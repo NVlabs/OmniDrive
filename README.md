@@ -11,17 +11,15 @@ We present OmniDrive, a holistic Drive LLM-Agent framework for end-to-end autono
 </div>
 
 ## News
-- `[2025/04/16]` Adding TensorRT support. [Link](https://github.com/NVlabs/OmniDrive/blob/main/deploy/deploy.md)
+- `[2025/04/16]` Adding TensorRT support. [[Link](https://github.com/NVlabs/OmniDrive/blob/main/deploy/deploy.md)]
 - `[2025/02/26]` OmniDrive is accepted to CVPR 2025.
-- `[2024/07/18]` OmniDrive-nuScenes model release. [HF](https://huggingface.co/exiawsh/OmniDrive/tree/main)
-- `[2024/05/02]` OmniDrive-nuScenes dataset release. [Data](https://github.com/NVlabs/OmniDrive/releases/tag/v1.0)
-- `[2024/05/02]` Technical report release. [arXiv](https://arxiv.org/abs/2405.01533)
+- `[2024/07/18]` OmniDrive-nuScenes model release. [[HF](https://huggingface.co/exiawsh/OmniDrive/tree/main)]
+- `[2024/05/02]` OmniDrive-nuScenes dataset release. [[Data](https://github.com/NVlabs/OmniDrive/releases/tag/v1.0)]
+- `[2024/05/02]` Technical report release. [[arXiv](https://arxiv.org/abs/2405.01533)]
 
 ## Getting Started
 
-Please follow our documentation step by step. If you like our work, please recommend it to your colleagues and friends.
-
-1. [**Environment Setup.**](./docs/setup.md)
+Please follow [**Environment Setup**](./docs/setup.md) step by step.
 
 ## Currently Supported Features
 - [x] OmnDrive Training Framework
