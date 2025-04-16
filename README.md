@@ -26,12 +26,12 @@ Please follow our documentation step by step. If you like our work, please recom
 ## Currently Supported Features
 - [x] OmnDrive Training Framework
 - [x] OmnDrive Dataset
-- [x] OmnDrive Checkpoint
+- [x] [OmnDrive Checkpoint](https://huggingface.co/exiawsh/OmniDrive/tree/main)
 - [x] Evaluation
 - [x] Data Generation
 - [x] TensorRT Inference
 - [ ] DeepSpeed
-- [x] Tiny LLM
+- [x] [Tiny LLM](exiawsh/omnidrive_tiny_pretrain)
 
 ## Visual Results
 
