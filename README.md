@@ -1,4 +1,3 @@
-
 # OmniDrive: LLM-Agent for Autonomous Driving with 3D Perception, Reasoning and Planning
 
 <!-- ## Introduction -->
@@ -12,6 +11,8 @@ We present OmniDrive, a holistic Drive LLM-Agent framework for end-to-end autono
 </div>
 
 ## News
+- `[2025/04/16]` Adding TensorRT support.
+- `[2025/02/26]` OmniDrive is accepted to CVPR 2025.
 - `[2024/07/18]` OmniDrive-nuScenes model release.
 - `[2024/05/02]` OmniDrive-nuScenes dataset release.
 - `[2024/05/02]` [ArXiv](https://arxiv.org/abs/2405.01533) technical report release.
@@ -25,12 +26,12 @@ Please follow our documentation step by step. If you like our work, please recom
 ## Currently Supported Features
 - [x] OmnDrive Training Framework
 - [x] OmnDrive Dataset
-- [ ] OmnDrive Checkpoint
+- [x] OmnDrive Checkpoint
 - [x] Evaluation
 - [x] Data Generation
-- [ ] TensorRT Inference
+- [x] TensorRT Inference
 - [ ] DeepSpeed
-- [ ] Tiny LLM
+- [x] Tiny LLM
 
 ## Visual Results
 
@@ -62,11 +63,13 @@ Counterfactual Reasoning of Planning Behaviors
 If this work is helpful for your research, please consider citing:
 
 ```
-@article{wang2024omnidrive,
-  title={{OmniDrive}: A Holistic LLM-Agent Framework for Autonomous Driving with 3D Perception, Reasoning and Planning},
+@inproceedings{wang2024omnidrive,
+  title={{OmniDrive}: A Holistic Vision-Language Dataset for Autonomous Driving with Counterfactual Reasoning},
   author={Shihao Wang and Zhiding Yu and Xiaohui Jiang and Shiyi Lan and Min Shi and Nadine Chang and Jan Kautz and Ying Li and Jose M. Alvarez},
-  journal={arXiv:2405.01533},
-  year={2024}
+  booktitle={CVPR},
+  year={2025}
 }
 ```
 
+## Acknowledgement
+The team would like to give special thanks to the NVIDIA TSE Team, including Le An, Chengzhe Xu, Yuchao Jin, and Josh Park, for their exceptional work on the TensorRT deployment of OmniDrive.

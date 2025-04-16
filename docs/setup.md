@@ -16,7 +16,7 @@ The pkl info is generated using StreamPETR's data converter. We converted the GT
 cd /path/to/OmniDrive
 conda create -n omnidrive python=3.9
 pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117
-pip install flash-attn==0.2.8
+pip install flash-attn==2.5.6
 pip install transformers==4.31.0 
 pip install mmcv-full==1.6.2 -f https://download.openmmlab.com/mmcv/dist/cu117/torch1.13/index.html
 pip install mmdet==2.28.2
@@ -68,6 +68,6 @@ OmniDrive
 cd /path/to/OmniDrive
 mkdir ckpts
 ```
-Please download the pretrained [2D llm weights](https://huggingface.co/exiawsh/pretrain_qformer/) and [vision encoder + projector weights](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eva02_petr_proj.pth) to ./ckpts.
+Please download the pretrained [2D llm weights](https://drive.google.com/drive/folders/1yqNyAp3Pp9CdENpah6AiMt3IfOXbqeUO?usp=sharing) and [vision encoder + projector weights](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eva02_petr_proj.pth) to ./ckpts.
 
 The [vision encoder + projector weights](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eva02_petr_proj.pth) are extracted from ckpts/pretrain_qformer/, which is pretrained by using llava data.

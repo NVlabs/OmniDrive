@@ -1,3 +1,10 @@
+## Copyright (c) 2024-2025, NVIDIA Corporation & Affiliates. All rights reserved.
+#
+# This work is made available under the Nvidia License.
+# To view a copy of this license, visit
+# https://github.com/NVlabs/OmniDrive/blob/main/LICENSE
+#
+# SPDX-License-Identifier: Apache-2.0
 import torch
 import torch.nn as nn
 import numpy as np
@@ -162,11 +169,12 @@ class MLN(nn.Module):
         f_dim (int): feature dimension
     '''
 
-    def __init__(self, c_dim, f_dim=256, with_ln=True):
+    def __init__(self, c_dim, f_dim=256, with_ln=True, export_onnx=False):
         super().__init__()
         self.c_dim = c_dim
         self.f_dim = f_dim
         self.with_ln = with_ln
+        self.export_onnx = export_onnx
 
         self.reduce = nn.Sequential(
             nn.Linear(c_dim, f_dim),
@@ -175,7 +183,7 @@ class MLN(nn.Module):
         self.gamma = nn.Linear(f_dim, f_dim)
         self.beta = nn.Linear(f_dim, f_dim)
         if self.with_ln:
-            self.ln = nn.LayerNorm(f_dim, elementwise_affine=False)
+            self.ln = nn.LayerNorm(f_dim, elementwise_affine=export_onnx)
         self.reset_parameters()
 
     def reset_parameters(self):
@@ -184,6 +192,10 @@ class MLN(nn.Module):
         nn.init.ones_(self.gamma.bias)
         nn.init.zeros_(self.beta.bias)
 
+        if self.with_ln and self.export_onnx:
+            nn.init.ones_(self.ln.weight)
+            nn.init.zeros_(self.ln.bias)
+            
     def forward(self, x, c):
         if self.with_ln:
             x = self.ln(x)

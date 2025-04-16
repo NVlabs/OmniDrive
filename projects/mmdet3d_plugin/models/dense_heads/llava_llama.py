@@ -1,3 +1,10 @@
+# Copyright (c) 2024-2025, NVIDIA Corporation & Affiliates. All rights reserved.
+#
+# This work is made available under the Nvidia License.
+# To view a copy of this license, visit
+# https://github.com/NVlabs/OmniDrive/blob/main/LICENSE
+#
+# SPDX-License-Identifier: Apache-2.0
 #    Copyright 2023 Haotian Liu
 #
 #    Licensed under the Apache License, Version 2.0 (the "License");

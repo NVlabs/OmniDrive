@@ -1,3 +1,10 @@
+# Copyright (c) 2024-2025, NVIDIA Corporation & Affiliates. All rights reserved.
+#
+# This work is made available under the Nvidia License.
+# To view a copy of this license, visit
+# https://github.com/NVlabs/OmniDrive/blob/main/LICENSE
+#
+# SPDX-License-Identifier: Apache-2.0
 # ------------------------------------------------------------------------
 # Copyright (c) 2022 megvii-model. All Rights Reserved.
 # ------------------------------------------------------------------------
@@ -61,7 +68,8 @@ class Petr3D(MVXTwoStageDetector):
                  aux_2d_only=True,
                  frozen=True,
                  use_lora=False,
-                 pretrained=None):
+                 pretrained=None,
+                 export_onnx=False):
         super(Petr3D, self).__init__(pts_voxel_layer, pts_voxel_encoder,
                              pts_middle_encoder, pts_fusion_layer,
                              img_backbone, pts_backbone, img_neck, pts_neck,
@@ -84,7 +92,7 @@ class Petr3D(MVXTwoStageDetector):
             nn.LayerNorm(embed_dims)
         )
 
-        self.ego_pose_pe = MLN(156)
+        self.ego_pose_pe = MLN(156, export_onnx=export_onnx)
 
         self.pts_bbox_head.query_pos = self.query_pos
         self.pts_bbox_head.time_embedding = self.time_embedding

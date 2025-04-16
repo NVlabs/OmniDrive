@@ -1,3 +1,18 @@
+# Copyright 2024 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
 import argparse
 import pickle
 import os
@@ -43,11 +58,10 @@ def process_data(preds, start, end, key_infos, metric_dict, lock, pbar, planning
             e2g_r_mat = Quaternion(data['ego2global_rotation']).rotation_matrix
             e2g_t = data['ego2global_translation']
             drivable_seg = planning_metric.get_drivable_area(e2g_t, e2g_r_mat, data)
-
             pred_traj_yaw = append_tangent_directions(pred_traj[..., :2])
             pred_traj_mask = np.concatenate([pred_traj_yaw[..., :2].reshape(1, -1), np.ones_like(pred_traj_yaw[..., :1]).reshape(1, -1), pred_traj_yaw[..., 2:].reshape(1, -1)], axis=-1)
             ego_seg = planning_metric.get_ego_seg(ego_boxes, pred_traj_mask, add_rec=True)
-
+            
             pred_traj = torch.from_numpy(pred_traj).unsqueeze(0)
             gt_traj = torch.from_numpy(gt_traj[..., :2])
             fut_valid_flag = mask.all()
@@ -79,6 +93,7 @@ def process_data(preds, start, end, key_infos, metric_dict, lock, pbar, planning
             pbar.update(1)
         except Exception as e:
             print(e)
+            pbar.update(1)
 
 def main(args):
     pred_path = args.pred_path
