@@ -68,6 +68,6 @@ OmniDrive
 cd /path/to/OmniDrive
 mkdir ckpts
 ```
-Please download the pretrained [2D llm weights](https://drive.google.com/drive/folders/1yqNyAp3Pp9CdENpah6AiMt3IfOXbqeUO?usp=sharing) and [vision encoder + projector weights](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eva02_petr_proj.pth) to ./ckpts.
+Please download the pretrained [2D llm weights](https://huggingface.co/exiawsh/pretrain_qformer/tree/main) and [vision encoder + projector weights](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eva02_petr_proj.pth) to ./ckpts.
 
 The [vision encoder + projector weights](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eva02_petr_proj.pth) are extracted from ckpts/pretrain_qformer/, which is pretrained by using llava data.
