@@ -240,7 +240,7 @@ def load_model(base_model, use_lora, frozen):
             
     if use_lora:
         peft_config = LoraConfig(
-                r=16,
+                r=128,
                 lora_alpha=16,
                 target_modules=("q_proj", "k_proj", "v_proj", "o_proj"),
                 lora_dropout=0.05,
