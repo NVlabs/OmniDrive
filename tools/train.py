@@ -19,7 +19,7 @@ from os import path as osp
 
 from mmdet import __version__ as mmdet_version
 from mmdet3d import __version__ as mmdet3d_version
-
+from projects.mmdet3d_plugin.models.utils.misc import load_model
 from mmdet3d.datasets import build_dataset
 from mmdet3d.models import build_model
 from mmdet3d.utils import collect_env, get_root_logger
@@ -215,6 +215,7 @@ def main():
         test_cfg=cfg.get('test_cfg'))
 
     model.init_weights()
+    model.lm_head = load_model(cfg.model['lm_head'], cfg.model['use_lora'], cfg.model['frozen'])
 
     if cfg.get('SyncBN', False):
         import torch.nn as nn
