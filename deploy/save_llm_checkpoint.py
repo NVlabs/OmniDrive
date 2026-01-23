@@ -11,7 +11,7 @@ import io
 from mmdet3d.models import build_model
 from mmdet.apis import set_random_seed
 from mmdet.datasets import replace_ImageToTensor
-from llm_lib import LlavaLlamaForCausalLM
+from llm_lib.llava_llama import LlavaLlamaForCausalLM
 from peft import LoraConfig, get_peft_model
 
 def parse_args():

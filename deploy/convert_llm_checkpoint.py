@@ -13,7 +13,7 @@ from tensorrt_llm.mapping import Mapping
 from tensorrt_llm.models import LLaMAForCausalLM
 from tensorrt_llm.models.modeling_utils import QuantConfig
 from tensorrt_llm.quantization import QuantAlgo
-from llm_lib import LlavaLlamaForCausalLM
+from llm_lib.llava_llama import LlavaLlamaForCausalLM
 
 def parse_arguments():
     parser = argparse.ArgumentParser()

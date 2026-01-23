@@ -7,7 +7,9 @@ RUN pip install openai==1.10.0
 RUN pip install accelerate==0.29.0 
 RUN pip install mmcv-full==1.6.2 -f https://download.openmmlab.com/mmcv/dist/cu117/torch1.13/index.html
 RUN pip install flash-attn==2.5.6
-RUN pip install lyft_dataset_sdk nuscenes-devkit plyfile scikit-image==0.19.3 openlanev2==2.1.0 peft fvcore sentencepiece
+RUN pip install lyft_dataset_sdk nuscenes-devkit plyfile scikit-image==0.19.3 peft fvcore sentencepiece
+RUN pip install https://github.com/google/or-tools/releases/download/v9.2/ortools-9.2.9972-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+RUN pip install openlanev2==2.1.0
 RUN git clone https://github.com/open-mmlab/mmdetection3d.git -b v1.0.0rc5
 RUN cd mmdetection3d/ && python setup.py install
 RUN pip install mmdet==2.28.2 mmsegmentation==0.30.0
