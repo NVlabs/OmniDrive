@@ -1,33 +1,12 @@
-# OmniDrive Deployment with TensorRT and TensorTR-LLM
-This document demonstrates the deployment of the [OmniDrive](https://arxiv.org/abs/2405.01533) utilizing [TensorRT](https://github.com/NVIDIA/TensorRT) and [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM). In this deployment demo, we will use [EVA](https://arxiv.org/abs/2303.11331)-base as the vision backbone and [TinyLlama](https://arxiv.org/abs/2401.02385) as the LLM head. We will provide a step-by-step overview of the deployment process, including the overall strategy, environment setup, engine build, engine benchmarking and result analysis.
+# OmniDrive Deployment with TensorRT-LLM
+In this document, we will provide a step-by-step overview of the deployment process on X86_64 using TensorRT-LLM, including the environment setup, engine build, and engine benchmarking.
 
 ## Table of Contents
 
-1. [Deployment strategy](#strategy)
-2. [Environment setup](#env)
-3. [Vision engine build](#vision)
-4. [LLM engine build](#llm)
-5. [Benchmark](#bench)
-6. [Results analysis](#result)
-    - [Accuracy performance](#acc)
-    - [Inference latencies](#latency)
-7. [Future works](#future)
-8. [References](#ref)
-
-## Deployment strategy <a name="strategy"></a>
-The OmniDrive employs [EVA](https://arxiv.org/abs/2303.11331) as the vision backbone, [StreamPETR](https://arxiv.org/abs/2303.11926) for both the bounding box detection head and the map head, and a LLM model as the planning head. For deployment, we utilize `EVA-base` as the backbone and [TinyLlama](https://arxiv.org/abs/2401.02385) as the LLM head.
-
-To enhence inference efficiency, engines are built seperately for the vision component (EVA backbone and StreamPETR necks) and the LLM component (TinyLlama). Below are the pipelines for deploying the two components:
- - The vision component: 
-    1) export ONNX model
-    2) build engines with TensorRT
- - The LLM component:
-    1) convert the checkpoints to Hugging Face safetensor with TensorRT-LLM
-    2) build engines with `trtllm-build`
-
-<img src="../assets/deployment_strategy.png" width="1000">
-
-We use TensorRT 10.4, and TensorRT-LLM 0.13 to deploy the OmniDrive on A100 GPU, X86_64 Linux platforms. (see this [config](../projects/configs/OmniDrive/eva_base_tinyllama.py) for model details.) Please notice that to run TensorRT-LLM within our environment, a patch must be applied to the TensorRT-LLM. You may refer to [Environment setup](#env) section for more details.
+1. [Environment setup](#env)
+2. [Vision engine build](#vision)
+3. [LLM engine build](#llm)
+4. [Benchmark](#bench)
 
 ## Environment setup <a name="env"></a>
 Please ensure that the folder structure complies with the requirements outlined in this [README](../README.md). You will need to prepare the following:
@@ -133,39 +112,3 @@ Similar to the PyTorch benchmark, the script will display performance evaluation
 ```bash
 python3 ./evaluation/eval_planning.py --base_path ./data/nuscenes/ --pred_path <QA_save_path>
 ```
-
-## Results analysis <a name="result"></a>
-### Accuracy performance <a name="acc"></a>
-Here are the performance comparisons between the PyTorch model and engines.
-Vision    | LLM  | BBOX mAP |  Planning L2 1s | Planning L2 2s | Planning L2 3s 
---------------------- | ---- | -------- | --- | --------------------------------| ------- 
-PyTorch | PyTorch  | 0.354 |  0.151 | 0.314 | 0.585
-FP32 engine | FP16 engine  | 0.354 | 0.150 | 0.312 | 0.581
-FP32 engine | FP16 activation INT4 weight  |0.354|0.157|0.323|0.604
-Mixed precision engine | FP16 engine  | 0.306 |0.166|0.337|0.615
-Mixed precision engine | FP16 activation INT4 weight  | 0.306|0.171|0.349|0.634
-
-### Inference latencies <a name="latency"></a>
-Here is the runtime latency analysis for the engines. The data was collected on an A100. And the unit in the following table is `ms`.
-
-Metrics | PyTorch | FP32 Vision engine | FP16 Vision engine
---------| ------- | ------- | ------
-Latency | 280.024 | 75.66   | 25.92
-
-Metrics                      | PyTorch  | FP16 LLM engine | FP16 activation INT4 weight
---------------------------   | -------  | -------- | ---
-Time To First Token (TTFT)   | 107.824  |  10.02   | 11.298
-Time Per Output Token (TPOT) |   27.49  |  2.798   |  2.515
-Time Per Frame               | 2256.50  | 256.20   |  232.6
-
-## Future works <a name="future"></a>
-- [ ] Better quantization (accuracy and latency)
-- [ ] DriveOS deployment
-- [ ] Better execution schedule for lower latency and better hardware utilization
-
-## References <a name="ref"></a>
-1. [EVA paper](https://arxiv.org/abs/2303.11331)
-2. [StreamPETR paper](https://arxiv.org/abs/2303.11926)
-3. [TinyLlama paper](https://arxiv.org/abs/2401.02385)
-4. [TensorRT repo](https://github.com/NVIDIA/TensorRT)
-5. [TensorRT-LLM repo](https://github.com/NVIDIA/TensorRT-LLM)
