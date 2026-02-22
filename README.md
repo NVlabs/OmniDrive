@@ -11,7 +11,8 @@ We present OmniDrive, a holistic Drive LLM-Agent framework for end-to-end autono
 </div>
 
 ## News
-- `[2025/04/16]` Adding TensorRT support. [[Link](https://github.com/NVlabs/OmniDrive/blob/main/deploy/deploy.md)]
+- `[2026/02/06]` Added TensorRT support with TensorRT-Edge-LLM on NVIDIA DRIVE AGX Thor. [[Link](https://github.com/NVlabs/OmniDrive/blob/main/deploy/deploy.md)]
+- `[2025/04/16]` Added TensorRT support with TensorRT-LLM on X86_64. [[Link](https://github.com/NVlabs/OmniDrive/blob/main/deploy/deploy.md)]
 - `[2025/02/26]` OmniDrive is accepted to CVPR 2025.
 - `[2024/07/18]` OmniDrive-nuScenes model release. [[HF](https://huggingface.co/exiawsh/OmniDrive/tree/main)]
 - `[2024/05/02]` OmniDrive-nuScenes dataset release. [[Data](https://github.com/NVlabs/OmniDrive/releases/tag/v1.0)]
@@ -27,7 +28,8 @@ Please follow [**Environment Setup**](./docs/setup.md) step by step.
 - [x] OmnDrive Checkpoint
 - [x] Evaluation
 - [x] Data Generation
-- [x] TensorRT Inference
+- [x] TensorRT Inference on X86_64 with TensorRT-LLM
+- [x] TensorRT Inference on NVIDIA DRIVE AGX Thor with TensorRT-Edge-LLM
 - [x] Tiny LLM
 
 ## Visual Results
