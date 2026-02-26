@@ -72,7 +72,7 @@ Please download the pretrained [2D llm weights](https://huggingface.co/exiawsh/p
 
 The [vision encoder + projector weights](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eva02_petr_proj.pth) are extracted from ckpts/pretrain_qformer/, which is pretrained by using llava data.
 
-The [pkl files] (https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eval_cf.zip), [evaluation](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eval_counter.py), [extraction](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/extract_counter.py) scripts for counterfactual reasoning.
+The [pkl files](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eval_cf.zip), [evaluation](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eval_counter.py), [extraction](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/extract_counter.py) scripts for counterfactual reasoning.
 
 
 
