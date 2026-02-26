@@ -71,3 +71,5 @@ mkdir ckpts
 Please download the pretrained [2D llm weights](https://huggingface.co/exiawsh/pretrain_qformer/tree/main) and [vision encoder + projector weights](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eva02_petr_proj.pth) to ./ckpts.
 
 The [vision encoder + projector weights](https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eva02_petr_proj.pth) are extracted from ckpts/pretrain_qformer/, which is pretrained by using llava data.
+
+The pkl files for counterfactual evaluation: https://github.com/NVlabs/OmniDrive/releases/download/v1.0/eval_cf.zip
