@@ -53,6 +53,8 @@ for current_id in tqdm.tqdm(range(len(key_infos['infos']))):
         traj = key_infos['infos'][current_id]['gt_planning'][0][mask]
         if traj.shape[0] == step:
             planning_trajs.append(traj)
+if len(planning_trajs) == 0:
+    raise ValueError("No valid planning trajectories found for clustering.")
 planning_trajs = np.stack(planning_trajs)
 planning_anchor = k_means_anchors(4096, planning_trajs)
 pickle.dump(planning_anchor, open('planning_anchor_infos.pkl', 'wb'))
