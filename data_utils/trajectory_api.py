@@ -75,11 +75,11 @@ class NuScenesTraj(object):
             rec_e2g_trans = np.array(rec_pose_record['translation'])
             next_bbox3d = self.generate_sdc_info(as_lidar_instance3d_box=True)
             
-            next_bbox3d.rotate(rec_e2g_rot.T)
+            next_bbox3d.rotate(rec_e2g_rot)
             next_bbox3d.translate(rec_e2g_trans)
             
             next_bbox3d.translate(-ref_e2g_trans)
-            next_bbox3d.rotate(ref_e2g_rot)
+            next_bbox3d.rotate(ref_e2g_rot.T)
             planning.append(next_bbox3d)
             
         planning_all = np.zeros((1, self.planning_steps, 3))
