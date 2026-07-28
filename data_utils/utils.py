@@ -102,13 +102,19 @@ def get_ped_crossing_contour(polygon: Polygon,
     if lines.type != 'LineString':
         # remove points in intersection results
         lines = [l for l in lines.geoms if l.geom_type != 'Point']
+        if not lines:
+            return None
         lines = ops.linemerge(lines)
+        if lines.is_empty:
+            return None
         
         # same instance but not connected.
         if lines.type != 'LineString':
             ls = []
             for l in lines.geoms:
                 ls.append(np.array(l.coords))
+            if not ls:
+                return None
             
             lines = np.concatenate(ls, axis=0)
             lines = LineString(lines)
