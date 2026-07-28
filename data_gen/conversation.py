@@ -99,7 +99,8 @@ Action:
         encoded_front_image = encode_image(front_image)
         encoded_back_image = encode_image(back_image)
         
-        while True:
+        max_retries = 10
+        for attempt in range(max_retries):
             try:
                 hat_completion = client.chat.completions.create(
                         model="gpt-4o",
@@ -139,11 +140,11 @@ Action:
                 result = json.loads(replace_newlines_in_json_string(hat_completion.choices[0].message.content))
                 with open(osp.join(output_dir, data['token']+'.json'), 'w') as f:
                     json.dump(result, f, indent=4)
-            except Exception as e:
-                print(e)
-                continue
-            else:
                 break
+            except Exception as e:
+                print(f"Attempt {attempt + 1}/{max_retries} failed for {data['token']}: {e}")
+                if attempt == max_retries - 1:
+                    raise RuntimeError(f"Failed to process {data['token']} after {max_retries} attempts") from e
 
 def main(info_file, desc_path, output_dir, n_process, api_key_arg):
     api_key = api_key_arg
