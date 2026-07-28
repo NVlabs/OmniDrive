@@ -106,7 +106,8 @@ Planning Info:
         encoded_front_image = encode_image(front_image)
         encoded_back_image = encode_image(back_image)
 
-        while True:
+        max_retries = 10
+        for attempt in range(max_retries):
             try:
                 hat_completion = client.chat.completions.create(
                         model="gpt-4o",
@@ -147,10 +148,11 @@ Planning Info:
                 print(result)
                 with open(output_file_path, 'w') as f:
                     json.dump(result, f, indent=4)
-            except Exception as e:
-                print(e)
-            else:
                 break
+            except Exception as e:
+                print(f"Attempt {attempt + 1}/{max_retries} failed for {data['token']}: {e}")
+                if attempt == max_retries - 1:
+                    raise RuntimeError(f"Failed to process {data['token']} after {max_retries} attempts") from e
 
 def main(base_path, lane_info_path, info_file, output_dir, n_process, api_key_arg):
     api_key = api_key_arg
