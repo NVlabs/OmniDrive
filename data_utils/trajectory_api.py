@@ -4,7 +4,7 @@ import torch
 from nuscenes.prediction import PredictHelper
 
 from mmdet3d.core.bbox import LiDARInstance3DBoxes
-from nuscenes.eval.common.utils import Quaternion
+from pyquaternion import Quaternion
 from mmcv.parallel import DataContainer as DC
 from mmdet.datasets.pipelines import to_tensor
 from nuscenes.utils.data_classes import Box
