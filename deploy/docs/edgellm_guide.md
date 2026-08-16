@@ -16,7 +16,7 @@ Please ensure that the folder structure complies with the requirements outlined 
 - The model checkpoints
 
 ### X86_64 environment setup
-To setup the environment for LLM ONNX export. please refer to the [official installation guide](https://github.com/NVIDIA/TensorRT-Edge-LLM/blob/main/docs/source/developer_guide/01.3_Installation.md) to install `tensorrt-edge-llm` Python package. Please use any environments that can work with `torch>=2.9` for the LLM ONNX export step.
+To setup the environment for LLM ONNX export. please refer to the [official installation guide](https://github.com/NVIDIA/TensorRT-Edge-LLM/blob/main/docs/source/developer_guide/01.3_Installation.md) to install `tensorrt-edge-llm` Python package. Please use any environments that can work with `torch>=2.0` for the LLM ONNX export step.
 
 For vision ONNX export, vision and LLM engine build and model benchmarking, we recommend using the [Dockerfile](./omnidrive-deploy.dockerfile):
 ```bash
