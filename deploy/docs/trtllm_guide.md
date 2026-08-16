@@ -29,7 +29,7 @@ cd <TensorRT_PATH>/python/
 pip3 install ./tensorrt-*-cp38-none-linux_x86_64.whl
 ```
 
-We also need to build the TensorRT-LLM wheels within the Docker environment. Please note that a [patch]() must be applied to the official TensorRT-LLM repo to ensure compatibility between TensorRT-LLM and the environment needed for the vision component.
+We also need to build the TensorRT-LLM wheels within the Docker environment. Please note that a [patch](../tensorrt_llm.patch) must be applied to the official TensorRT-LLM repo to ensure compatibility between TensorRT-LLM and the environment needed for the vision component.
 Please follow the commands to build and install the TensorRT-LLM wheels in the docker.
 
 ```bash
